@@ -1,14 +1,12 @@
 package vaje5;
-
 import util.Logger;
-
 import java.util.LinkedList;
 
 public class EventQueue {
 
     private LinkedList<Event> queue = new LinkedList<>();
 
-    public synchronized int setSize(){
+    public synchronized int getSize(){
         return queue.size();
     }
 
@@ -17,7 +15,7 @@ public class EventQueue {
         Logger.log("Event " + event.getEventType() + " added to queue Size: " + queue.size());
     }
 
-    public synchronized Event getEventOfType(EventType type){
+    public synchronized Event getEventIfType(EventType type){
         if (queue.isEmpty()) {return null;}
         if (queue.getFirst().getEventType() != type){
             return null;

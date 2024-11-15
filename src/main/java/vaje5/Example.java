@@ -15,11 +15,11 @@ public class Example {
         producer.start();
 
         CreateTicketConsumer createTicketConsumer = new CreateTicketConsumer(queue, storage);
-        ValidateTicketConsumer validateTicketConsumer =  new ValidateTicketConsumer(queue, storage);
+        ValidateTicketConsumer validateConsumer =  new ValidateTicketConsumer(queue, storage);
         UseTicketConsumer useTicketConsumer = new UseTicketConsumer(queue, storage);
 
         createTicketConsumer.start();
-        validateTicketConsumer.start();
+        validateConsumer.start();
         useTicketConsumer.start();
 
         producer.join();

@@ -1,8 +1,7 @@
 package vaje5;
-
 import java.util.Random;
 
-public class EventProducer extends Thread /*alpa implements runnable*/ {
+public class EventProducer extends Thread /*al pa implements runnable*/ {
 
     private EventQueue eventQueue;
 

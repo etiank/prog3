@@ -18,7 +18,7 @@ public class UseTicketConsumer extends Thread {
         Thread.currentThread().setName("UseTicketConsumer");
 
         while(true){
-            Event eventToHandle = eventQueue.getEventOfType(EventType.UseTicket);
+            Event eventToHandle = eventQueue.getEventIfType(EventType.UseTicket);
             if (eventToHandle == null){
                 continue;
             }
@@ -29,6 +29,7 @@ public class UseTicketConsumer extends Thread {
             }
 
             storage.removeTicket(eventToHandle.getTicketId());
+            Logger.log("Ticket " + eventToHandle.getTicketId() + " used!", LogLevel.Success);
         }
     }
 
